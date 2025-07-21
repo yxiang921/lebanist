@@ -101,7 +101,7 @@ jQuery(document).ready(function($){
 // 6. balloon-slider
 
     $('.product-slider').owlCarousel({
-    loop:true,
+    loop:false,
     dot:true,
     nav:false,
     autoplay:true,

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title><?php bloginfo('name'); ?> - <?php wp_title(); ?></title>
+    <title><?php bloginfo('name'); ?></title>
     <?php wp_head(); ?>
 
     <link rel="icon" href="<?php echo asset('assets/img/favicon.png'); ?>">

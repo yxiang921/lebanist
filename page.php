@@ -1,7 +1,6 @@
 <?php
 get_header();
 ?>
-<h1 style="text-align:center;   "><?php echo t('welcome'); ?></h1>
 <style>
     .product-list {
         display: flex;
