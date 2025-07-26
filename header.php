@@ -29,44 +29,35 @@
         <div class="nav-bar">
             <div class="container">
                 <nav class="navbar">
-                    <ul class="navbar-links">
-
-                        <li class="navbar-dropdown">
-                            <a href="#">Home</a>
-                        </li>
-                        <li class="navbar-dropdown">
-                            <a href="#">Blog</a>
-                        </li>
-                        <li class="navbar-dropdown">
-                            <a href="#">Contact</a>
-                        </li>
-                    </ul>
-
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'header-menu',
+                        'container' => false, // 不要外层 nav
+                        'menu_class' => 'navbar-links', // 用你的自定义 class
+                        'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+                        'depth' => 1, // 不显示 dropdown（可改成 2）
+                    ));
+                    ?>
                 </nav>
             </div>
         </div>
+
         <div class="mobile-nav hmburger-menu" id="mobile-nav" style="display:block;">
             <div class="res-log">
-                <a href="index.html">
-                    <img src="assets/img/logo-b.png" alt="Responsive Logo">
+                <a href="<?php echo home_url(); ?>">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-b.png" alt="Responsive Logo">
                 </a>
             </div>
-            <ul>
 
-                <ul class="navbar-links">
-
-                    <li class="navbar-dropdown">
-                        <a href="#">Home</a>
-                    </li>
-                    <li class="navbar-dropdown">
-                        <a href="#">Blog</a>
-                    </li>
-                    <li class="navbar-dropdown">
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-
-            </ul>
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'header-menu',
+                'container' => false,
+                'menu_class' => 'navbar-links',
+                'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+                'depth' => 1,
+            ));
+            ?>
 
             <a href="JavaScript:void(0)" id="res-cross"></a>
         </div>

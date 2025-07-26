@@ -17,4 +17,6 @@ return [
 
     's5_title' => 'Popular Occasion Themes',
     's5_desc' => 'Explore our popular occasion themes to find the perfect decorations for your event!',
+
+    'add_cart' => 'Add to Cart',
 ];

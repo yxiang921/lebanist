@@ -2,7 +2,7 @@
 /* Template Name: Cart Check Out */
 get_header();
 
-// Redirect to cart if no items
+// // Redirect to cart if no items
 if (WC()->cart->is_empty()) {
   wp_redirect(wc_get_cart_url());
   exit;
@@ -16,7 +16,7 @@ if (isset($_POST['woocommerce_checkout_place_order'])) {
 $checkout = WC()->checkout();
 ?>
 
-<section class="banner" style="background-image:url(https://placehold.co/1920x300)">
+<!-- <section class="banner" style="background-image:url(https://placehold.co/1920x300)">
   <div class="container">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
@@ -29,7 +29,7 @@ $checkout = WC()->checkout();
   </ol>
   <h2>Checkout</h2>
   </div>
-</section>
+</section> -->
 
 <section class="gap">
   <div class="container">
@@ -88,7 +88,7 @@ $checkout = WC()->checkout();
       }
       ?>
       
-      <div class="row">
+      <div class="row" style="margin-top:20px;">
         <div class="col-lg-6">
         <?php
         // City field
@@ -267,11 +267,7 @@ $checkout = WC()->checkout();
           <label for="payment_method_<?php echo $gateway->id; ?>">
           <?php echo $gateway->get_title(); ?>
           </label>
-          <?php if ($gateway->has_fields() || $gateway->get_description()) : ?>
-          <div class="payment_box payment_method_<?php echo $gateway->id; ?>" style="display: none;">
-          <?php $gateway->payment_fields(); ?>
-          </div>
-          <?php endif; ?>
+          
         </li>
         <?php endforeach; ?>
         </ul>

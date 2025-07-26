@@ -2,12 +2,12 @@
 /* Template Name: Cart */
 get_header();
 ?>
-<section class="banner" style="background-image:url(https://placehold.co/1920x300)">
+<!-- <section class="banner" style="background-image:url(https://placehold.co/1920x300)">
     <div class="container">
         <?php woocommerce_breadcrumb(); ?>
         <h2>My Cart</h2>
     </div>
-</section>
+</section> -->
 <section class="gap">
     <div class="container">
         <div class="row">

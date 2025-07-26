@@ -123,15 +123,27 @@ if (have_posts()):
                     ?>
 
                     <?php if ($product->is_purchasable()): ?>
-                      <div class="quantity">
-                        <h6>Quantity:</h6>
-                        <input type="number" class="input-text" step="1" min="1" name="quantity" value="1"
-                          max="<?php echo $product->get_stock_quantity(); ?>">
-                      </div>
-                      <div class="add-to-cart">
-                        <a href="#" class="btn wc-add-to-cart" data-product-id="<?php echo $product->get_id(); ?>"><span>Add to
-                            Cart</span></a>
-                      </div>
+                      <form class="cart"
+                        action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->get_permalink())); ?>"
+                        method="post" enctype='multipart/form-data'>
+                        <div class="quantity">
+                          <h6>Quantity:</h6>
+                          <?php
+                          woocommerce_quantity_input(array(
+                            'min_value' => apply_filters('woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product),
+                            'max_value' => apply_filters('woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product),
+                            'input_value' => isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : $product->get_min_purchase_quantity(),
+                          ));
+                          ?>
+                        </div>
+                        <div class="add-to-cart">
+                          <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>"
+                            class="btn single_add_to_cart_button">
+                            <span>Add to Cart</span>
+                          </button>
+                          <?php wp_nonce_field('woocommerce-add-to-cart'); ?>
+                        </div>
+                      </form>
                     <?php endif; ?>
                   </div>
                 </div>

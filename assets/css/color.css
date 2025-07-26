@@ -17,3 +17,7 @@ header,.featured-area:before,.featured-area,.balloon-shap:hover,.hero-section-tw
     background-color:#e4a3ba;
 
 }
+
+header{
+    background-color: transparent;
+}

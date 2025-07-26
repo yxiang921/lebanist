@@ -142,7 +142,7 @@ if (file_exists($langFile)) {
                                     ?>
                                     <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>"
                                         class="btn single_add_to_cart_button alt">
-                                        <span>Add to Cart</span>
+                                        <span><?= esc_html($lang['add_cart']) ?></span>
                                     </button>
                                 </form>
 
